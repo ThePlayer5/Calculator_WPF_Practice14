@@ -20,6 +20,7 @@ namespace Calculator_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<int> numbers = new List<int>();
         public int seven = 7;
         public int eight = 8;
         public int nine = 9;
@@ -30,6 +31,32 @@ namespace Calculator_WPF
         public int two = 2;
         public int three = 3;
         public int zero = 0;
+        public int result = 0;
+
+        public void DivideMethod()
+        {
+            foreach (var num in Input.Text)
+            {
+                if (!(char.IsSymbol(num) || char.IsPunctuation(num)))
+                {
+                    numbers.Add(Convert.ToInt32(num));
+                }
+            }
+            
+        }
+        public void MultiplyMethod()
+        {
+
+        }
+        public void MinusMethod()
+        {
+
+        }
+        public void PlusMethod()
+        {
+
+        }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -52,7 +79,7 @@ namespace Calculator_WPF
 
         private void Divide_Click(object sender, RoutedEventArgs e)
         {
-            
+            Input.Text += '/';
         }
 
         private void Four_Click(object sender, RoutedEventArgs e)
@@ -107,7 +134,34 @@ namespace Calculator_WPF
 
         private void Equal_Click(object sender, RoutedEventArgs e)
         {
-            Input.Text += '=';
+            int x = 0;
+            int y = 0;
+            if (Input.Text.Contains("/"))
+            {
+                foreach(var i in Input.Text)
+                {
+                    if (i == one)
+                        x = one;
+                    if (i == two)
+                        x = two;
+                    if (i == three)
+                        x = three;
+                    if (i == four)
+                        x = four;
+                    if (i == five)
+                        x = five;
+                    if (i == six)
+                        x = six;
+                    if (i == seven)
+                        x = seven;
+                    if (i == eight)
+                        x = eight;
+                    if (i == nine)
+                        x = nine;
+                    if (i == zero)
+                        x = zero;
+                }
+            }
         }
 
         private void Plus_Click(object sender, RoutedEventArgs e)
