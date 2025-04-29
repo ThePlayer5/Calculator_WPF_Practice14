@@ -20,9 +20,104 @@ namespace Calculator_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        public int seven = 7;
+        public int eight = 8;
+        public int nine = 9;
+        public int four = 4;
+        public int five = 5;
+        public int six = 6;
+        public int one = 1;
+        public int two = 2;
+        public int three = 3;
+        public int zero = 0;
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Seven_Click(object sender, RoutedEventArgs e)
+        {
+            Input.Text += seven;
+        }
+
+        private void Eight_Click(object sender, RoutedEventArgs e)
+        {
+            Input.Text += eight;
+        }
+
+        private void Nine_Click(object sender, RoutedEventArgs e)
+        {
+            Input.Text += nine;
+        }
+
+        private void Divide_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Four_Click(object sender, RoutedEventArgs e)
+        {
+            Input.Text += four;
+        }
+
+        private void Five_Click(object sender, RoutedEventArgs e)
+        {
+            Input.Text += five;
+        }
+
+        private void Six_Click(object sender, RoutedEventArgs e)
+        {
+            Input.Text += six;
+        }
+
+        private void Multiply_Click(object sender, RoutedEventArgs e)
+        {
+            Input.Text += '*';
+        }
+
+        private void One_Click(object sender, RoutedEventArgs e)
+        {
+            Input.Text += one;
+        }
+
+        private void Two_Click(object sender, RoutedEventArgs e)
+        {
+            Input.Text += two;
+        }
+
+        private void Three_Click(object sender, RoutedEventArgs e)
+        {
+            Input.Text += three;
+        }
+
+        private void Minus_Click(object sender, RoutedEventArgs e)
+        {
+            Input.Text += '-';
+        }
+
+        private void Zero_Click(object sender, RoutedEventArgs e)
+        {
+            Input.Text += zero;
+        }
+
+        private void Point_Click(object sender, RoutedEventArgs e)
+        {
+            Input.Text += '.';
+        }
+
+        private void Equal_Click(object sender, RoutedEventArgs e)
+        {
+            Input.Text += '=';
+        }
+
+        private void Plus_Click(object sender, RoutedEventArgs e)
+        {
+            Input.Text += '+';
+        }
+
+        private void Clear_Click(object sender, RoutedEventArgs e)
+        {
+            Input.Clear();
         }
     }
 }
