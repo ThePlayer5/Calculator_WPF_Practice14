@@ -151,7 +151,8 @@
             <TextBlock Text="Result:"
                        Foreground="White"
                        FontSize="30"/>
-            <TextBox FontSize="20"
+            <TextBox x:Name="Result"
+                     FontSize="20"
                      VerticalContentAlignment="Center"
                      Width="330"/>
         </StackPanel>

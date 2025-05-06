@@ -220,7 +220,7 @@ namespace Calculator_WPF
                         break;
                 }
 
-                Input.Text = result.ToString();
+                Result.Text = result.ToString();
                 _isOperationClicked = true;
             }
         }
@@ -233,6 +233,7 @@ namespace Calculator_WPF
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
             Input.Clear();
+            Result.Clear();
             _isOperationClicked = false;
         }
     }
