@@ -20,158 +20,220 @@ namespace Calculator_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<int> numbers = new List<int>();
-        public int seven = 7;
-        public int eight = 8;
-        public int nine = 9;
-        public int four = 4;
-        public int five = 5;
-        public int six = 6;
-        public int one = 1;
-        public int two = 2;
-        public int three = 3;
-        public int zero = 0;
-        public int result = 0;
+        private double _firstNumber;
+        private double _secondNumber;
+        private string _operation;
+        private bool _isOperationClicked;
 
         public void DivideMethod()
         {
-            foreach (var num in Input.Text)
+            if (!string.IsNullOrEmpty(Input.Text))
             {
-                if (!(char.IsSymbol(num) || char.IsPunctuation(num)))
-                {
-                    numbers.Add(Convert.ToInt32(num));
-                }
+                _firstNumber = double.Parse(Input.Text);
+                _operation = "/";
+                _isOperationClicked = true;
             }
-            
         }
         public void MultiplyMethod()
         {
-
+            if (!string.IsNullOrEmpty(Input.Text))
+            {
+                _firstNumber = double.Parse(Input.Text);
+                _operation = "*";
+                _isOperationClicked = true;
+            }
         }
         public void MinusMethod()
         {
-
+            if (!string.IsNullOrEmpty(Input.Text))
+            {
+                _firstNumber = double.Parse(Input.Text);
+                _operation = "-";
+                _isOperationClicked = true;
+            }
         }
         public void PlusMethod()
         {
-
+            if (!string.IsNullOrEmpty(Input.Text))
+            {
+                _firstNumber = double.Parse(Input.Text);
+                _operation = "+";
+                _isOperationClicked = true;
+            }
         }
 
         public MainWindow()
         {
             InitializeComponent();
+            _isOperationClicked = false;
         }
 
         private void Seven_Click(object sender, RoutedEventArgs e)
         {
-            Input.Text += seven;
+            if (_isOperationClicked)
+            {
+                Input.Text = "";
+                _isOperationClicked = false;
+            }
+            Input.Text += 7;
         }
 
         private void Eight_Click(object sender, RoutedEventArgs e)
         {
-            Input.Text += eight;
+            if (_isOperationClicked)
+            {
+                Input.Text = "";
+                _isOperationClicked = false;
+            }
+            Input.Text += 8;
         }
 
         private void Nine_Click(object sender, RoutedEventArgs e)
         {
-            Input.Text += nine;
+            if (_isOperationClicked)
+            {
+                Input.Text = "";
+                _isOperationClicked = false;
+            }
+            Input.Text += 9;
         }
 
         private void Divide_Click(object sender, RoutedEventArgs e)
         {
-            Input.Text += '/';
+            DivideMethod();
         }
 
         private void Four_Click(object sender, RoutedEventArgs e)
         {
-            Input.Text += four;
+            if (_isOperationClicked)
+            {
+                Input.Text = "";
+                _isOperationClicked = false;
+            }
+            Input.Text += 4;
         }
 
         private void Five_Click(object sender, RoutedEventArgs e)
         {
-            Input.Text += five;
+            if (_isOperationClicked)
+            {
+                Input.Text = "";
+                _isOperationClicked = false;
+            }
+            Input.Text += 5;
         }
 
         private void Six_Click(object sender, RoutedEventArgs e)
         {
-            Input.Text += six;
+            if (_isOperationClicked)
+            {
+                Input.Text = "";
+                _isOperationClicked = false;
+            }
+            Input.Text += 6;
         }
 
         private void Multiply_Click(object sender, RoutedEventArgs e)
         {
-            Input.Text += '*';
+            MultiplyMethod();
         }
 
         private void One_Click(object sender, RoutedEventArgs e)
         {
-            Input.Text += one;
+            if (_isOperationClicked)
+            {
+                Input.Text = "";
+                _isOperationClicked = false;
+            }
+            Input.Text += 1;
         }
 
         private void Two_Click(object sender, RoutedEventArgs e)
         {
-            Input.Text += two;
+            if (_isOperationClicked)
+            {
+                Input.Text = "";
+                _isOperationClicked = false;
+            }
+            Input.Text += 2;
         }
 
         private void Three_Click(object sender, RoutedEventArgs e)
         {
-            Input.Text += three;
+            if (_isOperationClicked)
+            {
+                Input.Text = "";
+                _isOperationClicked = false;
+            }
+            Input.Text += 3;
         }
 
         private void Minus_Click(object sender, RoutedEventArgs e)
         {
-            Input.Text += '-';
+            MinusMethod();
         }
 
         private void Zero_Click(object sender, RoutedEventArgs e)
         {
-            Input.Text += zero;
+            if (_isOperationClicked)
+            {
+                Input.Text = "";
+                _isOperationClicked = false;
+            }
+            Input.Text += 0;
         }
 
         private void Point_Click(object sender, RoutedEventArgs e)
         {
-            Input.Text += '.';
+            if (!Input.Text.Contains("."))
+            {
+                Input.Text += ".";
+            }
         }
 
         private void Equal_Click(object sender, RoutedEventArgs e)
         {
-            int x = 0;
-            int y = 0;
-            if (Input.Text.Contains("/"))
+            if (!string.IsNullOrEmpty(Input.Text) && !string.IsNullOrEmpty(_operation))
             {
-                foreach(var i in Input.Text)
+                _secondNumber = double.Parse(Input.Text);
+                double result = 0;
+
+                switch (_operation)
                 {
-                    if (i == one)
-                        x = one;
-                    if (i == two)
-                        x = two;
-                    if (i == three)
-                        x = three;
-                    if (i == four)
-                        x = four;
-                    if (i == five)
-                        x = five;
-                    if (i == six)
-                        x = six;
-                    if (i == seven)
-                        x = seven;
-                    if (i == eight)
-                        x = eight;
-                    if (i == nine)
-                        x = nine;
-                    if (i == zero)
-                        x = zero;
+                    case "+":
+                        result = _firstNumber + _secondNumber;
+                        break;
+                    case "-":
+                        result = _firstNumber - _secondNumber;
+                        break;
+                    case "*":
+                        result = _firstNumber * _secondNumber;
+                        break;
+                    case "/":
+                        if (_secondNumber != 0)
+                            result = _firstNumber / _secondNumber;
+                        else
+                        {
+                            MessageBox.Show("Error");
+                            return;
+                        }
+                        break;
                 }
+
+                Input.Text = result.ToString();
+                _isOperationClicked = true;
             }
         }
 
         private void Plus_Click(object sender, RoutedEventArgs e)
         {
-            Input.Text += '+';
+            PlusMethod();
         }
 
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
             Input.Clear();
+            _isOperationClicked = false;
         }
     }
 }
